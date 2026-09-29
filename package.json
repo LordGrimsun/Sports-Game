@@ -1,0 +1,25 @@
+{
+  "name": "sports-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Any screen is the console. Any phone is the controller. Tennis and Pong with real swings.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "motion-gaming",
+    "webrtc",
+    "sports-game",
+    "threejs",
+    "tennis",
+    "pong"
+  ],
+  "author": "LordGrimsun",
+  "license": "MIT"
+}

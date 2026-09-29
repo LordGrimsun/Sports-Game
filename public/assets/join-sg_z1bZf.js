@@ -1,0 +1,14 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/jsQR-DhH5ppsp.js","assets/rolldown-runtime-hePW80VL.js"])))=>i.map(i=>d[i]);
+import{r as e}from"./rolldown-runtime-hePW80VL.js";import{n as t}from"./index-KMRz6R5s.js";function n(n){n.innerHTML=``;let r=document.createElement(`div`);r.className=`mote join`,r.innerHTML=`
+    <div class="top"><span>kheMote</span><span class="status">join</span></div>
+    <div class="mid">
+      <h1 class="wordmark" translate="no">khe<em>Sports</em></h1>
+      <div class="msg">Scan the code on the TV</div>
+      <div class="scan"><video playsinline muted></video><div class="frame"></div><div class="scanmsg">Starting the camera…</div></div>
+      <div class="sub">Be on the same Wi-Fi as the TV. No Wi-Fi? Turn on this phone's hotspot and connect the TV to it.</div>
+      <label class="namebox codebox"><span>Or type the room code</span><input id="code" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="000 000"></label>
+    </div>
+    <div class="bottom">
+      <button class="lime" id="go" disabled>Join</button>
+      <a class="ghost tvlink" href="/?host=1">I am the TV, open the console</a>
+    </div>`,n.appendChild(r);let i=r.querySelector(`video`),a=r.querySelector(`.scanmsg`),o=r.querySelector(`#code`),s=r.querySelector(`#go`),c=!1,l=e=>{if(c)return;let t=e.match(/\/m\/(\d{6})/);if(t){c=!0,p();try{let t=new URL(e,location.href);location.href=t.href}catch{location.href=`/m/${t[1]}`}}};o.addEventListener(`input`,()=>{let e=o.value.replace(/\D/g,``).slice(0,6);o.value=e,s.disabled=e.length!==6});let u=()=>{o.value.length===6&&l(`/m/${o.value}`)};s.addEventListener(`click`,u),o.addEventListener(`keydown`,e=>{e.key===`Enter`&&u()});let d,f=0,p=()=>{cancelAnimationFrame(f),d?.getTracks().forEach(e=>e.stop())};async function m(){if(!navigator.mediaDevices?.getUserMedia){a.textContent=`No camera here. Type the code instead.`;return}try{d=await navigator.mediaDevices.getUserMedia({video:{facingMode:`environment`,width:{ideal:1280}},audio:!1})}catch{a.textContent=`Camera not allowed. Type the code instead, or use your camera app on the code.`;return}i.srcObject=d,await i.play(),a.textContent=`Looking for the code…`;let n=window.BarcodeDetector;if(n){let e=new n({formats:[`qr_code`]}),t=async()=>{if(!c){try{let t=await e.detect(i);for(let e of t)l(e.rawValue)}catch{}f=requestAnimationFrame(()=>void t())}};t();return}let{default:r}=await t(async()=>{let{default:t}=await import(`./jsQR-DhH5ppsp.js`).then(t=>e(t.default,1));return{default:t}},__vite__mapDeps([0,1])),o=document.createElement(`canvas`),s=o.getContext(`2d`,{willReadFrequently:!0}),u=0,p=e=>{if(c||(f=requestAnimationFrame(p),e-u<120||!i.videoWidth))return;u=e;let t=Math.round(i.videoHeight/i.videoWidth*480);o.width=480,o.height=t,s.drawImage(i,0,0,480,t);let n=s.getImageData(0,0,480,t),a=r(n.data,480,t,{inversionAttempts:`dontInvert`});a?.data&&l(a.data)};f=requestAnimationFrame(p)}m()}export{n as mountJoin};
